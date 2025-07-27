@@ -21,7 +21,7 @@ directory = input("Enter the folder directory to organize -: ")
 print("")
 
 filetype_or_keyword = int(input("Do you want to organize by file extensions (type 1) or by keywords? (type 2) -: "))
-if filetype_or_keyword == 1:
+if filetype_or_keyword == 2:
     keyword_amount = int(input("How many keywords to search for? -: "))
     i = 0
     while i != keyword_amount:
@@ -64,7 +64,7 @@ if filetype_or_keyword == 1:
     file_control.rmdir(f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER")
     print("Organizer: Finished! Your files are now neat and clean!")
 
-elif filetype_or_keyword == 2:
+elif filetype_or_keyword == 1:
     i = 0
     sub_i = 0
     filetype = ""
