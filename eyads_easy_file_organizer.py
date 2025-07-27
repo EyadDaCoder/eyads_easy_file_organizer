@@ -20,7 +20,7 @@ markup = [".html", ".htm", ".css", ".js", ".jsx", ".tsx", ".php"]
 directory = input("Enter the folder directory to organize -: ")
 print("")
 
-filetype_or_keyword = input("Do you want to organize by file extensions (type 1) or by keywords? (type 2) -: ")
+filetype_or_keyword = int(input("Do you want to organize by file extensions (type 1) or by keywords? (type 2) -: "))
 if filetype_or_keyword == 1:
     keyword_amount = int(input("How many keywords to search for? -: "))
     i = 0
@@ -136,7 +136,7 @@ elif filetype_or_keyword == 2:
                 required_files.append("mcl" + files[i])
             else:
                 required_files.append("mcl" + files[i])
-            
+
 
         sub_i = 0
         i += 1
