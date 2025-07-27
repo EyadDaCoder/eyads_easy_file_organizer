@@ -1,7 +1,7 @@
 This is my file organizer called EEFO: Eyads Easy File Organizer.
 
-It can detect 46 filetypes:
-Images: 9
+It can detect 47 filetypes:
+Images: 10
 Video: 9
 Audio: 8
 Text: 5
