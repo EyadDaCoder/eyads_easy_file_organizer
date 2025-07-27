@@ -9,7 +9,7 @@ required_files = []
 print("EEFO: Eyad's Easy File Organizer")
 timeout(1)
 
-images = [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".heic", ".heif"]
+images = [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".heic", ".heif", ".svg"]
 video = [".mp4", ".mkv", ".mov", ".avi", ".wmv", ".flv", ".webm", ".mpeg", ".mpg"]
 audio = [".mp3", ".wav", ".aac", ".ogg", ".flac", ".m4a", ".wma", ".alac"]
 text = [".txt", ".rtf", ".md", ".markdown", ".log"]
@@ -130,12 +130,6 @@ elif filetype_or_keyword == 1:
                 required_files.append("mrk" + files[i])
             else:
                 required_files.append("mrk" + files[i])
-        else:
-            if "Micellaneous" not in required_folders:
-                required_folders.append("Micellaneous")
-                required_files.append("mcl" + files[i])
-            else:
-                required_files.append("mcl" + files[i])
 
 
         sub_i = 0
@@ -151,29 +145,27 @@ elif filetype_or_keyword == 1:
     while i != len(required_folders):
         file_control.mkdir(f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\{required_folders[i]}")
         i += 1
+
     print("Organizer: Created folders!")
     print("Organizer: Sorting files...")
     i = 0
     while i != len(required_files):
-        if ''.join(required_files[0:3]) == "img":
+        if required_files[i][0:3] == "img":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Images\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "vid":
-            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Videos\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "txt":
+        elif ''.join(required_files[i][0:3]) == "vid":
+            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Video\\{required_files[i][3:]}")
+        elif ''.join(required_files[i][0:3]) == "txt":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Text\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "aud":
+        elif ''.join(required_files[i][0:3]) == "aud":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Audio\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "sxt":
+        elif ''.join(required_files[i][0:3]) == "sxt":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Special Text\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "cnf":
+        elif ''.join(required_files[i][0:3]) == "cnf":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Configuration Text\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "mrk":
+        elif ''.join(required_files[i][0:3]) == "mrk":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Markup\\{required_files[i][3:]}")
-        elif ''.join(required_files[0:3]) == "mcl":
-            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Micellaneous\\{required_files[i][3:]}")
 
         i += 1
-        # add more here
 
     print("Organizer: Sorted Files!")
     print("Organizer: Finishing...")
