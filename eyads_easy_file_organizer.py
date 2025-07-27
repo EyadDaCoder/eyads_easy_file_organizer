@@ -130,6 +130,13 @@ elif filetype_or_keyword == 2:
                 required_files.append("mrk" + files[i])
             else:
                 required_files.append("mrk" + files[i])
+        else:
+            if "Micellaneous" not in required_folders:
+                required_folders.append("Micellaneous")
+                required_files.append("mcl" + files[i])
+            else:
+                required_files.append("mcl" + files[i])
+            
 
         sub_i = 0
         i += 1
@@ -162,6 +169,8 @@ elif filetype_or_keyword == 2:
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Configuration Text\\{required_files[i][3:]}")
         elif ''.join(required_files[0:3]) == "mrk":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Markup\\{required_files[i][3:]}")
+        elif ''.join(required_files[0:3]) == "mcl":
+            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Micellaneous\\{required_files[i][3:]}")
 
         i += 1
         # add more here
