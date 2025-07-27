@@ -81,6 +81,7 @@ elif filetype_or_keyword == 2:
             sub_i += 1
 
         filetype = ''.join(read_cache)
+
         if filetype in images:
             if "Images" not in required_folders:
                 required_folders.append("Images")
@@ -88,31 +89,53 @@ elif filetype_or_keyword == 2:
             else:
                 required_files.append("img" + files[i])
 
-        elif filetype in images:
+        elif filetype in video:
             if "Video" not in required_folders:
                 required_folders.append("Video")
                 required_files.append("vid" + files[i])
             else:
                 required_files.append("vid" + files[i])
 
-        elif filetype in images:
+        elif filetype in text:
             if "Text" not in required_folders:
                 required_folders.append("Text")
                 required_files.append("txt" + files[i])
             else:
                 required_files.append("txt" + files[i])
 
+        elif filetype in audio:
+            if "Audio" not in required_folders:
+                required_folders.append("Audio")
+                required_files.append("aud" + files[i])
+            else:
+                required_files.append("aud" + files[i])
+
+        elif filetype in special_text:
+            if "Special Text" not in required_folders:
+                required_folders.append("Special Text")
+                required_files.append("sxt" + files[i])
+            else:
+                required_files.append("sxt" + files[i])
+
+        elif filetype in config_text:
+            if "Configuration Text" not in required_folders:
+                required_folders.append("Configuration Text")
+                required_files.append("cnf" + files[i])
+            else:
+                required_files.append("cnf" + files[i])
+
+        elif filetype in markup:
+            if "Markup" not in required_folders:
+                required_folders.append("Markup")
+                required_files.append("mrk" + files[i])
+            else:
+                required_files.append("mrk" + files[i])
+
         sub_i = 0
         i += 1
         filetype = ""
         start_read_Cache = False
         read_cache = []
-
-    i = 0
-
-
-    # add more here
-    i += 1
 
     print(f"Organizer: Found {len(required_folders)} file format groups!")
     print("Organizer: Creating Folders.. ")
@@ -125,12 +148,21 @@ elif filetype_or_keyword == 2:
     print("Organizer: Sorting files...")
     i = 0
     while i != len(required_files):
-        if required_files[i][0] == "i" and required_files[i][1] == "m" and required_files[i][2] == "g":
+        if ''.join(required_files[0:3]) == "img":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Images\\{required_files[i][3:]}")
-        elif required_files[i][0] == "v" and required_files[i][1] == "i" and required_files[i][2] == "d":
+        elif ''.join(required_files[0:3]) == "vid":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Videos\\{required_files[i][3:]}")
-        elif required_files[i][0] == "t" and required_files[i][1] == "x" and required_files[i][2] == "t":
+        elif ''.join(required_files[0:3]) == "txt":
             file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Text\\{required_files[i][3:]}")
+        elif ''.join(required_files[0:3]) == "aud":
+            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Audio\\{required_files[i][3:]}")
+        elif ''.join(required_files[0:3]) == "sxt":
+            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Special Text\\{required_files[i][3:]}")
+        elif ''.join(required_files[0:3]) == "cnf":
+            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Configuration Text\\{required_files[i][3:]}")
+        elif ''.join(required_files[0:3]) == "mrk":
+            file_control.rename(f"{directory}\\{required_files[i][3:]}", f"C:\\Users\\{file_control.getlogin()}\\EEFO_BUFFER\\Markup\\{required_files[i][3:]}")
+
         i += 1
         # add more here
 
